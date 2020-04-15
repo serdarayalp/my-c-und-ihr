@@ -1,5 +1,7 @@
 #include <stdio.h>
 
-int main() {
-    printf("%d\n", 5/2);
+int main()
+{
+
+    return 0;
 }
