@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <ctype.h>
 
+void printText(void);
+
 void func1()
 {
     printf("Das ist meine erste Zeile\n");
@@ -26,4 +28,11 @@ int main()
     func1();
 
     printf("(3x + 22) : Das Ergebniss ist: %d\n", func2());
+    
+    printText();
+}
+
+void printText(void)
+{
+    printf("Das ist ein Test...\n");
 }
