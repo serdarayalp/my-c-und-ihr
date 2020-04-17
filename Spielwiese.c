@@ -4,8 +4,13 @@
 int main()
 {
 
+    float sizeVariable;
+    printf("%d", sizeof sizeVariable);
+
+    /*
     printf("%f\n", 2.456E2);
     printf("%f\n", 2.456e2);
+    */
 
     /*
     char m1[20];
