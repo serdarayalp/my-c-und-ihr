@@ -11,6 +11,7 @@ int main()
     printf("'short int' ist %lu Byte(-s) bzw. %lu Bit(-s) \n", sizeof(short int), 8 * sizeof(short int));
     printf("'signed short int' ist %lu Byte(-s) bzw. %lu Bit(-s) \n", sizeof(signed short int), 8 * sizeof(signed short int));
     printf("'unsigned short int' ist %lu Byte(-s) bzw. %lu Bit(-s) \n", sizeof(unsigned short int), 8 * sizeof(unsigned short int));
+    
     printf("*****************************************************\n");
 
     printf("'int' ist %lu Byte(-s) bzw. %lu Bit(-s) \n", sizeof(int), 8 * sizeof(int));
