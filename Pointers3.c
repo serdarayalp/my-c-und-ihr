@@ -26,6 +26,7 @@ int main()
     // *++p;   // Pointer moves to the next int position, and then get's accessed, with your code, segfault
     // *(++p); // Pointer moves to the next int position, and then get's accessed, with your code, segfault
 
+
     printf("Pointer beinhaltet die Adresse (Variable) ist: %p\n", p);
     printf("Wert der Variable ueber den Pointer ist: %d\n", *p);
 
