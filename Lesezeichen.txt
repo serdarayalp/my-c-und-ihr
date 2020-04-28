@@ -1,1 +1,1 @@
-Seite 257: Pointer Adresi Tasiyan Pointerlar
+Seite 261: Pointerlarin Fonksiyon Parametresi olarak kullanilmasi
