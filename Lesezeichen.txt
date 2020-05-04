@@ -1,1 +1,1 @@
-Seite 261: Pointerlarin Fonksiyon Parametresi olarak kullanilmasi
+Seite 312: Konsol Giris ve Cikis Islemleri
