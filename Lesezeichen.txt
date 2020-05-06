@@ -1,1 +1,1 @@
-Seite 312: Konsol Giris ve Cikis Islemleri
+Seite 320: printf() Fonksiyonu
