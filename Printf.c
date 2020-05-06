@@ -7,7 +7,7 @@ int main()
 
 Das allgemeine Schema
 ---------------------
-%[Flags][Breite][.Präzision][h|l|L]Typ
+%[Flags][Breite][.Präzision][h|l|L]Datentyp
 
 
 Platzhalter der elementaren Datentypen
@@ -69,7 +69,7 @@ Flags	            angewendet auf Typ	    Bedeutung
 <Keins>	 	        -                       rechtsbündig
 -	 	            -                       linksbündig mit folgenden Leerzeichen
 +	 	            -                       Vorzeichen immer ausgeben (auch +)
-<Leerzeichen/>;	 	-                       nur negative Vorzeichen
+Leerzeichen	 	    -                       nur negative Vorzeichen
 #	                o	                    für Werte != 0 wird eine '0' vorgestellt
 #                   x, X	                für Werte != 0 wird '0x', bzw. '0X' vorgestellt
 #                   e, E, f, g, G	        Dezimalpunkt immer ausgeben
@@ -137,6 +137,12 @@ Flags	            angewendet auf Typ	    Bedeutung
     printf("12345678\n");
     // .*	=   Präzision aus nächstem Argument der Liste nehmen
     printf("%8.*f\n", 2, 12.3456); // 12.35
+
+    printf("%10d\n", 12);  // xxxxxxxx12
+    printf("%010d\n", 12); // 0000000012
+    printf("%-10d\n", 12); // 12xxxxxxxx
+    printf("% 10d\n", -12); // xxxxxxx-12
+    printf("% 10d\n", 12); // xxxxxxxx12
 
     return 0;
 }
