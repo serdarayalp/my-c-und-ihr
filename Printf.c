@@ -7,7 +7,50 @@ int main()
 
 Das allgemeine Schema
 ---------------------
-%[Flags][Breite][.Präzision][h|l|L]Datentyp
+%[Flags][Breite][.Präzision][Typergänzung: h|l|L]Datentyp
+
+
+Einige weitere Angaben zum Ausgabeformat (Flags)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Flags	            angewendet auf Typ	    Bedeutung
+------------------------------------------------------
+<Keins>	 	        -                       rechtsbündig
+-	 	            -                       linksbündig mit folgenden Leerzeichen
++	 	            -                       Vorzeichen immer ausgeben (auch +)
+Leerzeichen	 	    -                       nur negative Vorzeichen
+#	                o	                    für Werte != 0 wird eine '0' vorgestellt
+#                   x, X	                für Werte != 0 wird '0x', bzw. '0X' vorgestellt
+#                   e, E, f, g, G	        Dezimalpunkt immer ausgeben
+
+
+Angabe für die Breite der Ausgabe.
+++++++++++++++++++++++++++++++++++++++++
+Breite	    Wirkung
+--------------------------------
+n	        min. n Zeichen, Leerzeichen vorangestellt
+0n	        min. n Zeichen, Nullen vorangestellt
+*	        das nächste Argument aus der Liste ist die Breite
+
+
+Angaben zur Anzahl der Nachkommastellen (Präzision).
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Präzision	    angewendet auf Typ	    Präzision
+-----------------------------------------------------
+.n	            e, E, f	                n Nachkommastellen
+.n              g, G	                max. n Nachkommastellen
+.0	            e, E, f	                kein Dezimalpunkt
+<nix>	        e, E, f	                6 Nachkommastellen
+.*	 	        -                       Präzision aus nächstem Argument der Liste
+
+Modifizierer (Typergänzung) : 
+Bisher konnten wir mit dem Typ nur einige der elementaren 
+Datentypen ansprechen.Durch den Modifizierer k onnen auch die anderen Datentypen ausgegeben werden.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+h       Die Argumente werden als short interpretiert (Formate: d,i,o,u,x,X). 
+l       Die  Argumente  werden  als  long  (Formate:  d,i,o,u,x,X)  bzw.  als double 
+        interpretiert (Formate; e,E,f,g,G). 
+L       Die Argumente werden als double interpretiert (Formate e,E,f,g und G).
+
 
 
 Platzhalter der elementaren Datentypen
@@ -29,50 +72,6 @@ Platzhalter	Datentyp	    Darstellung
 %p	        void *	        Speicheradresse
 %n	        signed int *	schreibt die Anzahl der bisherigen Zeichen in die angegebene Adresse
 %%	        -	            Ausgabe des Zeichens '%'
-
-
-
-Modifizierer für die Platzhalter der elementaren Datentypen.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Modifizierer	    angewendet auf	    Interpretation/Wirkung
-------------------------------------------------------------
-h	                d, i, o, u, x, X	short int
-h                   n	                short int*
-l	                d, i, o, u, x, X	long int
-l                   n	                long int*
-l                   e, E, f, g, G	    double (nur scanf)
-L	                e, E, f, g, G	    long double
-
-
-Angabe für die Breite der Ausgabe.
-++++++++++++++++++++++++++++++++++++++++
-Breite	    Wirkung
---------------------------------
-n	        min. n Zeichen, Leerzeichen vorangestellt
-0n	        min. n Zeichen, Nullen vorangestellt
-*	        das nächste Argument aus der Liste ist die Breite
-
-Angaben zur Anzahl der Nachkommastellen (Präzision).
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Präzision	    angewendet auf Typ	    Präzision
------------------------------------------------------
-.n	            e, E, f	                n Nachkommastellen
-.n              g, G	                max. n Nachkommastellen
-.0	            e, E, f	                kein Dezimalpunkt
-<nix>	        e, E, f	                6 Nachkommastellen
-.*	 	        -                       Präzision aus nächstem Argument der Liste
-
-Einige weitere Angaben zum Ausgabeformat (Flags)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Flags	            angewendet auf Typ	    Bedeutung
-------------------------------------------------------
-<Keins>	 	        -                       rechtsbündig
--	 	            -                       linksbündig mit folgenden Leerzeichen
-+	 	            -                       Vorzeichen immer ausgeben (auch +)
-Leerzeichen	 	    -                       nur negative Vorzeichen
-#	                o	                    für Werte != 0 wird eine '0' vorgestellt
-#                   x, X	                für Werte != 0 wird '0x', bzw. '0X' vorgestellt
-#                   e, E, f, g, G	        Dezimalpunkt immer ausgeben
 
 
 
@@ -138,11 +137,13 @@ Leerzeichen	 	    -                       nur negative Vorzeichen
     // .*	=   Präzision aus nächstem Argument der Liste nehmen
     printf("%8.*f\n", 2, 12.3456); // 12.35
 
-    printf("%10d\n", 12);  // xxxxxxxx12
-    printf("%010d\n", 12); // 0000000012
-    printf("%-10d\n", 12); // 12xxxxxxxx
+    printf("%10d\n", 12);   // xxxxxxxx12
+    printf("%010d\n", 12);  // 0000000012
+    printf("%-10d\n", 12);  // 12xxxxxxxx
+    printf("%+10d\n", 12);  // xxxxxxx+12
+    printf("%-+10d\n", 12);  // +12xxxxxxx
     printf("% 10d\n", -12); // xxxxxxx-12
-    printf("% 10d\n", 12); // xxxxxxxx12
+    printf("% 10d\n", 12);  // xxxxxxxx12
 
     return 0;
 }
