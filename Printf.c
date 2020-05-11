@@ -27,8 +27,8 @@ Angabe für die Breite der Ausgabe.
 ++++++++++++++++++++++++++++++++++++++++
 Breite	    Wirkung
 --------------------------------
-n	        min. n Zeichen, Leerzeichen vorangestellt
-0n	        min. n Zeichen, Nullen vorangestellt
+n	        min. n Zeichen (über n wird die Zahl nicht geschnitten), Leerzeichen vorangestellt
+0n	        min. n Zeichen (über n wird die Zahl nicht geschnitten), Nullen vorangestellt
 *	        das nächste Argument aus der Liste ist die Breite
 
 
@@ -49,7 +49,7 @@ Datentypen ansprechen.Durch den Modifizierer k onnen auch die anderen Datentypen
 h       Die Argumente werden als short interpretiert (Formate: d,i,o,u,x,X). 
 l       Die  Argumente  werden  als  long  (Formate:  d,i,o,u,x,X)  bzw.  als double 
         interpretiert (Formate; e,E,f,g,G). 
-L       Die Argumente werden als double interpretiert (Formate e,E,f,g und G).
+L       Die Argumente werden als long double interpretiert (Formate e,E,f,g und G).
 
 
 
@@ -99,7 +99,7 @@ Platzhalter	Datentyp	    Darstellung
     doubleVariable = 52437.034637;
     longDoubleVariable = 958675.279838;
 
-    printf("%e\n %E\n %le\n %LE", floatVariable1, floatVariable2, doubleVariable, longDoubleVariable);
+    printf("%e\n %E\n %le\n %Le", floatVariable1, floatVariable2, doubleVariable, longDoubleVariable);
 
     printf("\n");
     printf("***************************************************************");
@@ -142,9 +142,73 @@ Platzhalter	Datentyp	    Darstellung
     printf("%010d\n", 12);  // 0000000012
     printf("%-10d\n", 12);  // 12xxxxxxxx
     printf("%+10d\n", 12);  // xxxxxxx+12
-    printf("%-+10d\n", 12);  // +12xxxxxxx
+    printf("%-+10d\n", 12); // +12xxxxxxx
     printf("% 10d\n", -12); // xxxxxxx-12
     printf("% 10d\n", 12);  // xxxxxxxx12
+
+    printf("%d\n", 5158);
+    printf("%o\n", 5158);
+    printf("%#o\n", 5158);
+
+    printf("\n");
+    printf("***************************************************************");
+    printf("\n");
+
+    printf("%d\n", 12863);
+    printf("%x\n", 12863);
+    printf("%X\n", 12863);
+
+    printf("\n");
+    printf("***************************************************************");
+    printf("\n");
+
+    printf("%.7d\n", 4735);
+    printf("%.7i\n", 4735);
+    printf("%.7o\n", 4735);
+    printf("%.7u\n", 4735);
+    printf("%.7x\n", 4735);
+
+    printf("\n");
+    printf("***************************************************************");
+    printf("\n");
+
+    printf("%.2f\n", 473.534965); // 473.53
+    printf("%.4f\n", 473.534965); // 473.5350
+    printf("%.7e\n", 473.534965); // 4.7353496e+002
+    printf("%.8g\n", 473.534965); // 473.53496
+
+    printf("%.30s\n", "Das ist ein Test");
+    printf("%.10s\n", "Das ist ein Test");
+
+    int d1 = 7;
+    for (int i = 0; i < 4; i++, d1 = d1 * 10)
+    {
+        printf("%8d\n", d1);
+    }
+
+    d1 = 7;
+    for (int i = 0; i < 4; i++, d1 = d1 * 10)
+    {
+        printf("%-8d\n", d1);
+    }
+
+    printf("%10d\n", 1234);
+    printf("%10.7d\n", 1234);
+    printf("%7.6o\n", 1234);
+    printf("%8.5x\n", 1234);
+    printf("%#8.5x\n", 1234);
+
+    printf("\b\n");
+    printf("\f\n");
+    printf("\n");
+    printf("\r\n");
+    printf("\t\n");
+    printf("\"\n");
+    printf("\'\n");
+    printf("\0\n");
+    printf("\\\n");
+    printf("\v\n");
+    printf("\a\n");
 
     return 0;
 }
