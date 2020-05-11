@@ -65,12 +65,13 @@ Platzhalter	Datentyp	    Darstellung
 %f	        double	        immer ohne Exponent
 %e	        double	        immer mit Exponent (durch 'e' angedeutet)
 %E	        double	        immer mit Exponent (durch 'E' angedeutet)
-%g	        double	        nach Bedarf mit Exponent (durch 'e' angedeutet)
-%G	        double	        nach Bedarf mit Exponent (durch 'E' angedeutet)
+%g	        double	        verwendet die kürzeste Version von %e oder %f
+%G	        double	        verwendet die kürzeste Version von %E oder %f
 %c	        char	        einzelnes Zeichen
 %s	        char[]	        Zeichenkette (String)
 %p	        void *	        Speicheradresse
-%n	        signed int *	schreibt die Anzahl der bisherigen Zeichen in die angegebene Adresse
+%n	        signed int *	schreibt die Anzahl der bisher ausgegebenen Zeichen in die Variable, 
+                            die als Parameter angegeben ist (Adresse der Variable, z.B. &variableName oder als Pointer)
 %%	        -	            Ausgabe des Zeichens '%'
 
 
