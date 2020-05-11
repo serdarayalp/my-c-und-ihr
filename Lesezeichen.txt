@@ -1,1 +1,1 @@
-Seite 320: printf() Fonksiyonu
+Seite 338: Seitenanfang
