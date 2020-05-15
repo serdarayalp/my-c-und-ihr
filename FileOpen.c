@@ -4,7 +4,7 @@
 int main()
 {
 
-    /*
+	/*
 Opening Modes in Standard I/O
 	
 r
@@ -62,22 +62,32 @@ ab+
 	If the file does not exist, it will be created.
 */
 
-    FILE *filePointer;
+	FILE *filePointer;
 
-    if ((filePointer = fopen("File.txt", "r")) == NULL)
-    {
-        printf("Datei kann nicht geoeffnet werden!\n");
-        exit(1);
-    }
+	if ((filePointer = fopen("File.txt", "r")) == NULL)
+	{
+		printf("Datei kann nicht geoeffnet werden!\n");
+		exit(1);
+	}
 
-    // Erfolgreich = 0, sonst EOF = -1
-    // EOF : Returned by various functions on end of file condition or error.
-    int ergebnis = fclose(filePointer);
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%c\n", fputc('A', filePointer));
+	}
 
-    if (!ergebnis)
-    {
-        printf("Die Datei ist erfolgreich geschlossen!\n");
-    }
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%c\n", fgetc(filePointer));
+	}
 
-    return 0;
+	// Erfolgreich = 0, sonst EOF = -1
+	// EOF : Returned by various functions on end of file condition or error.
+	int ergebnis = fclose(filePointer);
+
+	if (!ergebnis)
+	{
+		printf("Die Datei ist erfolgreich geschlossen!\n");
+	}
+
+	return 0;
 }
