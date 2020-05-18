@@ -1,1 +1,1 @@
-Seite 371: feof und ferror Functions
+Seite 386: fread() und fwrite() Funktionc
