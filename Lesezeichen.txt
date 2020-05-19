@@ -1,1 +1,1 @@
-Seite 386: fread() und fwrite() Funktionc
+Seite 431: 10.1.8
