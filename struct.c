@@ -9,11 +9,13 @@ struct person
 };
 
 void meineFunktion(struct person _person);
+void meineFunktion2(struct person *personPointer);
 
 int main(int argc, char const *argv[])
 {
 
     struct person _person;
+    struct person *personPointer;
 
     strcpy(_person.vorname, "Serdar");
     strcpy(_person.nachname, "Ayalp");
@@ -21,12 +23,19 @@ int main(int argc, char const *argv[])
 
     printf("\n");
 
-    printf("Vor Funktionsaufruf: %s\n", _person.vorname);
+    printf("Vor Funktionsaufruf <meineFunktion>: %s\n", _person.vorname);
     meineFunktion(_person);
-    printf("Nach Funktionsaufruf: %s\n", _person.vorname);
+    printf("Nach Funktionsaufruf <meineFunktion>: %s\n", _person.vorname);
 
     printf("\n");
 
+    printf("Vor Funktionsaufruf <meineFunktion2>: %s\n", _person.vorname);
+    
+    personPointer = &_person;
+    meineFunktion2(personPointer);
+    printf("Nach Funktionsaufruf <meineFunktion2>: %s\n", _person.vorname);
+
+    printf("\n");
 
     struct person _person2 = {"Semra", "Ayalp", 30};
 
@@ -46,5 +55,9 @@ int main(int argc, char const *argv[])
 void meineFunktion(struct person _person)
 {
     strcpy(_person.vorname, "Baran");
-    printf("In der Funktion: %s\n", _person.vorname);
+}
+
+void meineFunktion2(struct person *personPointer)
+{
+    strcpy(personPointer->vorname, "Baran Tahir");
 }
